@@ -1,3 +1,9 @@
+
+chrome.browserAction.onClicked.addListener( function (tab) {
+  chrome.browserAction.setIcon({ tabId : tab.id, path: 'recording.png' });
+});
+
+
 /* Feature detection
  */
 
@@ -47,10 +53,10 @@ chrome.tabCapture.capture(options, function(stream) {
     socket.emit('my other event', {my: stream});
   });
 
-  // var $audio = document.createElement('audio');
-  // $audio.src = window.URL.createObjectURL(stream);
-  // setTimeout(function(){$audio.play();}, 2000);
-  // document.body.appendChild($audio);
+  var $audio = document.createElement('audio');
+  $audio.src = window.URL.createObjectURL(stream);
+  setTimeout(function(){$audio.play();}, 2000);
+  document.body.appendChild($audio);
 
   // Adding a local stream won't trigger the onaddstream callback
   // pc.addStream(stream);
