@@ -6,7 +6,7 @@
   "version": "1.0",
 
   "background": {
-    "scripts": ["global-chrome.js"]
+    "page": "background.html"
   },
 
   "permissions": [
@@ -16,5 +16,5 @@
   "browser_action": {
     "default_icon": "icon.png"
   },
-  "content_security_policy": "script-src 'self' https://localhost.com:3000; object-src 'self'"
+  "content_security_policy": "script-src 'self' https://localhost:3000; object-src 'self'"
 }

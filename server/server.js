@@ -1,19 +1,28 @@
-var io = require('socket.io')(8080);
-
 var fs = require('fs');
-var crypto = require('crypto');
 
-var privateKey = fs.readFileSync('key.pem').toString();
-var certificate = fs.readFileSync('csr.pem').toString();
-var credentials = {key: privateKey, cert: certificate};
+var key = fs.readFileSync('key.pem');
+var cert = fs.readFileSync('cert.pem');
 
-var app = require('express')();
-var https = require('https').createServer(credentials);
+var credentials = {
+  key: key,
+  cert: cert
+};
+
+// https.createServer(options, function (req, res) {
+//     res.writeHead(200);
+//     res.end("Hi from HTTPS");
+// }).listen(8000);
+
+var server = require('express')();
+var http = require('http').Server(server);
+var https = require('https').createServer(credentials, server);
 var io = require('socket.io')(https);
 
-https.setSecure(credentials);
+https.listen(3000, function(){
+  console.log('listening on *:3000');
+});
 
-https.get('/', function(req, res){
+server.get('/', function(req, res){
   res.sendfile(__dirname + '/views/index.html');
 });
 
@@ -25,6 +34,3 @@ io.on('connection', function(socket){
   });
 });
 
-https.listen(3000, function(){
-  console.log('listening on *:3000');
-});
