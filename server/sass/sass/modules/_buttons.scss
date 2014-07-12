@@ -1,0 +1,14 @@
+.button {
+	background: $primaryColor;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: $montserrat;
+	padding: 8px 16px;
+	border-radius: 2px;
+	transition: background 0.2s;
+	@include font-size(24px);
+	margin: 0;
+	&:hover {
+		background: darken($primaryColor, 5%);
+	}
+}

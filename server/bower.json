@@ -1,0 +1,14 @@
+{
+  "name": "projekt-r",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.2.3"
+  }
+}

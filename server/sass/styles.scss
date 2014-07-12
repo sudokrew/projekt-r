@@ -1,0 +1,46 @@
+/*!
+ * DistroKid
+ * -----------------------
+ */
+
+// START SCSS
+// Run following command relative to root folder
+// $ sass --watch css:css
+// It will detect changes in "sass" folder and overide "style.css"
+
+// Foundation
+// ---------------------------------------------------
+@import "sass/framework/foundation/settings";
+@import "../bower_components/foundation/scss/foundation";
+
+// Mixin, Variables, Etc
+// ---------------------------------------------------
+@import "sass/framework/config";
+@import "sass/framework/media-queries";
+@import "sass/framework/colors";
+@import "sass/framework/typography";
+@import "sass/framework/mixin";
+@import "sass/framework/placeholder";
+
+// Modules
+// ---------------------------------------------------
+@import "sass/modules/buttons";
+@import "sass/modules/forms";
+@import "sass/modules/headings";
+@import "sass/modules/images";
+@import "sass/modules/links";
+@import "sass/modules/circles";
+@import "sass/modules/dropdown";
+
+// Page Styles
+// ---------------------------------------------------
+// Partials
+@import "sass/partials/base";
+@import "sass/partials/header";
+@import "sass/partials/footer";
+@import "sass/partials/navigation";
+// Sections
+@import "sass/sections/stream-list";
+
+// Typography
+@import "sass/modules/fonts";
